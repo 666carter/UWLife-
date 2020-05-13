@@ -1,0 +1,50 @@
+<!--*******************************************************HEADER************************************************** -->
+    <header>
+    <div class="hearder_carpool">
+        <div class="container">
+            <div class="slider-container">
+                <div class="intro-text-carpool">
+                    <div class="intro-heading">YOU CAN ALWAYS MAKE MONEY WHITE DRIVING FOR OTHERS</div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </header>
+
+  <!--**************************************************REQUIREMENT**************************************************-->
+    <section class="requirement">
+    <%= render 'shared/errors' %>
+        <%= form_with scope: :carpool, url: carpools_path, local: true do |f| %>
+            <p style="color:black;font-weight: 700;font-size:20px;letter-spacing: 1px;">DETAILS</p><br>
+            <div class="row">
+                <div class="col-lg-4">
+                    <p style="color:black;font-weight: 550;font-size:16px;letter-spacing: 1px;">How many seats you want to provide?</p>
+                    <%= f.text_field :seats, type: "integer", style: "width:70%; margin-top:-4px; height: 35px;border-radius: 6px;" %>
+                </div>
+                <div class="col-lg-6">
+                    <p style="color:black;font-weight: 550;font-size:16px;letter-spacing: 1px;">Location</p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <%= f.text_field :locationFrom, placeholder: "From...", style: "width:90%; margin-top:-4px; height: 35px;border-radius: 6px;padding:12px; " %>
+                        </div>
+                        <div class="col-md-6">
+                            <%= f.text_field :locationTo, placeholder: "To...", style: "width:90%; margin-top:-4px; height: 35px;border-radius: 6px;padding:12px; "%>
+                            </div>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                      <p style="color:black;font-weight: 550;font-size:16px;letter-spacing: 1px;">Price</p>
+                      <%= f.text_field :price, placeholder: "$(CAD)", style: "width:75%; margin-top:-4px; height: 35px;border-radius: 6px;padding:12px; " %> 
+                </div>
+            </div>
+            <hr>
+            <div class=" row ">
+                <div class="col-md-12">
+                    <p style="color:black;font-weight: 550;font-size:16px;letter-spacing: 1px; ">Description</p>
+                    <%= f.text_area :gender, rows: "7", cols: "50", placeholder: "Any additional detail you want to share, like time, location, price, etc.", style: "width:100%; margin-top:-4px; border-radius: 6px;padding:12px; " %>
+                </div>
+            </div>
+            <br><br>
+            <%= f.submit "PUBLISH", class: "create_new_carpool" %> 
+      <% end %>
+    </section>

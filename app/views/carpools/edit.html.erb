@@ -1,0 +1,28 @@
+<h1>Edit carpool</h1>
+
+<% if @carpool.errors.any? %>
+  <h2>The following errors prevented the post from being saved</h2>
+  <ul>
+    <% @carpool.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with(model: @carpool, local: true) do |f| %>
+
+  <p>
+  <%= f.label :seats %><br/> 
+  <%= f.text_field :seats, type: "integer" %>
+  </p>
+
+  <p>
+  <%= f.label :price %><br/> 
+  <%= f.text_area :price %> 
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+
+<% end %>

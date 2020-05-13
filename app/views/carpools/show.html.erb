@@ -1,0 +1,6 @@
+<p><strong>Title: </strong><%= @carpool.price %></p>
+<p><strong>Description: </strong><%= @carpool.seats %></p>
+
+<%= link_to 'Edit', edit_carpool_path(@carpool) %> |
+<%= link_to 'Delete', carpool_path(@carpool), method: :delete, data: { confirm: "Are you sure?" } %> |
+<%= link_to 'Return to carpools listing', carpools_path %> 

@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+<%= link_to "UWLife+", root_path, class: "navbar-brand", id: "logo" %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
+    <ul class="navbar-nav ml-auto flex-nowrap">
+      <li class="nav-item active">
+      <%= link_to "Home", root_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+      <%= link_to "Carpool", carpools_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Housing</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Book</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Tutor</a>
+      </li>
+      <li class="nav-item dropdown" style = "width: 80%">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Personal Center
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Login</a>
+          <a class="dropdown-item" href="#">Personal Center</a>
+          <div class="dropdown-divider"></div>
+          <%= link_to "Posting Carpool", new_carpool_path, class: "dropdown-item" %>
+          <%= link_to "Posting Housing", new_carpool_path, class: "dropdown-item" %>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
