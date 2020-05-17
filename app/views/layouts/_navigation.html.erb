@@ -19,14 +19,22 @@
         <% if logged_in? %>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Posting
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="width: 100%">
+          <%= link_to "Post Carpool", new_carpool_path, class: "dropdown-item" %>
+          <div class="dropdown-divider"></div>
+          <%= link_to "Post Housing", new_housing_path, class: "dropdown-item" %>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <%= current_user.username %>'s Personal Center
           </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="width: 100%">
             <%= link_to 'Profile', user_path(current_user), class: "dropdown-item" %> 
-            <%= link_to 'Logout', logout_path, class: "dropdown-item", method: :delete %>
             <div class="dropdown-divider"></div>
-            <%= link_to "Posting Carpool", new_carpool_path, class: "dropdown-item" %>
-            <%= link_to "Posting Housing", new_housing_path, class: "dropdown-item" %>
+            <%= link_to 'Logout', logout_path, class: "dropdown-item", method: :delete %>
           </div>
         </li>
         <% else %>

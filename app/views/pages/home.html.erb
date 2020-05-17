@@ -4,7 +4,9 @@
             <div class="slider-container">
                 <div class="intro-text">
                     <div class="intro-heading">We help Waterloo students live in a better place</div>
+                    <% if !logged_in? %>
                     <%= link_to "Sign Up for Free", signup_path, class: "page-scroll btn btn-xl" %>
+                    <% end %>
                 </div>
             </div>
         </div>
