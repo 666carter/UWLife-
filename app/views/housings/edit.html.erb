@@ -1,0 +1,57 @@
+<!--*******************************************************HEADER************************************************** -->
+    <header>
+    <div class="hearder_housing">
+        <div class="container">
+            <div class="slider-container">
+                <div class="intro-text-housing">
+                    <div class="intro-heading">EDIT YOUR POST HERE</div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </header>
+
+  <!--**************************************************REQUIREMENT**************************************************-->
+    <section class="requirement">
+    <%= render 'shared/errors', obj: @housing %>
+        <%= form_with(model: @housing, local: true) do |f| %>
+            <p style="color:black;font-weight: 700;font-size:20px;letter-spacing: 1px;">DETAILS</p><br>
+            <div class="row">
+                <div class="col-lg-3">
+                    <p style="color:black;font-weight: 550;font-size:16px;letter-spacing: 1px;">How many rooms?</p>
+                    <%= f.text_field :howManyRooms, type: "integer", style: "width:100%; margin-top:-4px; height: 35px;border-radius: 6px;padding:12px;" %>
+                </div>
+                <div class="col-lg-6">
+                    <p style="color:black;font-weight: 550;font-size:16px;letter-spacing: 1px;">Date</p>
+                    <%= f.text_field :address, placeholder: "Specify the duration you want to rent", style: "width:100%; margin-top:-4px; height: 35px;border-radius: 6px;padding:12px;" %>
+                </div>
+                <div class="col-lg-3">
+                <p style="color:black;font-weight: 550;font-size:16px;letter-spacing: 1px;">Price Per Month</p>
+                <%= f.text_field :price, placeholder: "$(CAD)", style: "width:100%; margin-top:-4px; height: 35px;border-radius: 6px;padding:12px; " %> 
+            </div>
+            </div>
+            <hr>
+            <div class="row">
+            <div class="col-md-12">
+                <p style="color:black;font-weight: 550;font-size:16px;letter-spacing: 1px; ">Address</p>
+                <%= f.text_area :time, rows: "1", cols: "50", placeholder: "Please specify address for this apartment/house.", style: "width:100%; margin-top:-4px; border-radius: 6px;padding:12px; " %>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p style="color:black;font-weight: 550;font-size:16px;letter-spacing: 1px; ">Description</p>
+                    <%= f.text_area :description, rows: "7", cols: "50", placeholder: "Any additional detail about the house/apartment you want to share. This field is optional.", style: "width:100%; margin-top:-4px; border-radius: 6px;padding:12px; " %>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+            <div class="col-lg-12">
+                <p style="color:black;font-weight: 550;font-size:16px;letter-spacing: 1px; ">Requirement</p>
+                <%= f.text_area :requirement, rows: "7", cols: "50", placeholder: "Any requirement for the subletter you want to specify, for example, no pets allowed. This field is optional.", style: "width:100%; margin-top:-4px; border-radius: 6px;padding:12px; " %>
+            </div>
+        </div>
+            <br><br>
+            <%= f.submit "UPDATE", class: "create_new_housing" %> 
+      <% end %>
+    </section>

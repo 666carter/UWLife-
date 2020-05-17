@@ -1,6 +1,53 @@
-<p><strong>Title: </strong><%= @carpool.price %></p>
-<p><strong>Description: </strong><%= @carpool.seats %></p>
+<hr><hr>
 
-<%= link_to 'Edit', edit_carpool_path(@carpool) %> |
-<%= link_to 'Delete', carpool_path(@carpool), method: :delete, data: { confirm: "Are you sure?" } %> |
-<%= link_to 'Return to carpools listing', carpools_path %> 
+<section class="carouselsection">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <p style="margin-left:3%;margin-bottom: 25px;margin-top: -2.5%;color:black;font-weight: 700; font-size: 22px;">Trip Detail:</p>
+                
+                <p style="font-weight: 500; margin-left: 3%;"> PRICE: &nbsp; <span style="font-weight: 500; color:black;color:#ff5647;">$<%= @carpool.price %>/seat</span></p>
+                
+                <p style="font-weight: 500; margin-left: 3%;"> AVALIABLE SEATS: &nbsp; <span style="font-weight: 500; color:black;"><%= @carpool.seats %> left</span></p>
+
+                <p style="font-weight: 500; margin-left: 3%;"> WHEN: &nbsp; <span style="font-weight: 500; color:black;">
+                <% if @carpool.time.blank? %>
+                The driver doesn't specified the timing
+                <% else %>
+                <%= @carpool.time %> 
+                <% end %>
+                </span></p>
+                            
+                <p style="font-weight: 500; margin-left: 3%;"> FROM: &nbsp; <span style="font-weight: 500; color:black;"><%= @carpool.locationFrom %></span></p>
+                
+                <p style="font-weight: 500; margin-left: 3%;"> TO: &nbsp; <span style="font-weight: 500; color:black;"><%= @carpool.locationTo %></span></p>
+ 
+            </div>
+        </div>
+
+        <hr style=" border: 1px solid #ff5647; margin-right:3%; margin-left:3%;">
+
+        <div class="row">
+            <div class="col-sm-12">
+                <p style="margin-left:3%;margin-bottom: 25px;color:black;font-weight: 700; font-size: 22px;">Description:</p>
+                <p style="font-weight: 500; margin-left: 3%;">
+                <% if @carpool.description.blank? %>
+                This driver hasn't write any description yet.  
+                <% else %>
+                <%= @carpool.description %>
+                <% end %>
+                </p>
+            </div>
+        </div>
+
+        <hr style=" border: 1px solid #ff5647; margin-right:3%; margin-left:3%;">
+
+        <div class="row">
+        <div class="col-sm-12">
+            <p style="margin-left:3%;margin-bottom: 25px;color:black;font-weight: 700; font-size: 22px;">Renter's Information:</p>              
+                <p style="margin-left:3%;font-weight: 500;">NAME: <%= link_to @carpool.user.username, user_path(@carpool.user) %> <span style="color:black;">[click on the name to view driver's profile]</span></p>
+                <p style="margin-left:3%;font-weight: 500;">TEL: <span style="font-weight: 500; color:black;"> <%= @carpool.user.tel %> </span</p>
+                <p style="margin-left:3%;font-weight: 500;">EMAIL: <span style="font-weight: 500; color:black;"> <%= @carpool.user.email %> </span></p>
+        </div>
+    </div>
+    </section>

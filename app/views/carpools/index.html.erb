@@ -13,41 +13,8 @@
 
     <!--**************************************************LISTS**************************************************-->
 
-    <div class="container-fluid all-lists">
-        <br>
-        <div class="row">
-            <div class="col-lg-2 text-center">
-                Sorted by:
-            </div>
-            <a href="#">
-                <div class="col-lg-2 text-center sort active">
-                    Default
-                </div>
-            </a>
-            <a href="#">
-                <div class="col-lg-2 text-center sort">
-                    Date added
-                </div>
-            </a>
-            <a href="#">
-                <div class="col-lg-2 text-center sort">
-                    Low price
-                </div>
-            </a>
-            <a href="#">
-                <div class="col-lg-2 text-center sort">
-                    High price
-                </div>
-            </a>
-            <a href="#">
-                <div class="col-lg-2 text-center sort">
-                    Popularity
-                </div>
-            </a>
-        </div>
-        <hr style="border-top: 1px solid #ff5647;">
-
-
+<div class="container-fluid all-lists">
+     <br><br>
   <div class="row lists">
   <br>
   <div class="container">
@@ -56,17 +23,21 @@
     <div class="col-8 mt-4">
       <div class="card text-center shadow mb-5 bg-white rounded">
         <div class="card-header font-italic">
-        <b>Driver Name:</b> Carter
+        <% if carpool.user %>
+              by <%= link_to carpool.user.username, user_path(carpool.user) %>
+         <% end %>
         </div>
         <div class="card-body">
-          <h5 class="card-title"><b>From:</b> <%= carpool.locationFrom %></h5>
-          <h5 class="card-title"><b>To:</b> <%= carpool.locationTo %></h5>
-          <h5 class="card-title"><b>Price:</b> $<%= carpool.price %></h5>
-          <h5 class="card-title"><b>Avaliable Seats:</b> <%= carpool.seats %></h5>
+          <h5 class="card-title"><b style="font-weight: 400;">From:</b> <%= carpool.locationFrom %></h5>
+          <h5 class="card-title"><b style="font-weight: 400;">To:</b> <%= carpool.locationTo %></h5>
+          <h5 class="card-title"><b style="font-weight: 400;">Price:</b> $<%= carpool.price %></h5>
+          <h5 class="card-title"><b style="font-weight: 400;">Avaliable Seats:</b> <%= carpool.seats %></h5>
           <%= link_to "View", carpool_path(carpool), class: "btn view" %>
-          <%= link_to "Edit", edit_carpool_path(carpool), class: "btn edit" %>
-          <%= link_to "Delete", carpool_path(carpool), class: "btn delete", method: :delete, data: {confirm: "Are you sure?"} %>
-        </div>
+          <% if logged_in? && (carpool.user == current_user || current_user.admin?) %>
+            <%= link_to "Edit", edit_carpool_path(carpool), class: "btn edit" %>
+            <%= link_to "Delete", carpool_path(carpool), class: "btn delete", method: :delete, data: {confirm: "Are you sure?"} %>
+          <% end %>
+          </div>
         <div class="card-footer text-muted">
           <small>Created <%= time_ago_in_words(carpool.created_at) %> ago, 
           edited <%= time_ago_in_words(carpool.updated_at) %> ago</small>

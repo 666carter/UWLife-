@@ -13,7 +13,7 @@
 
   <!--**************************************************REQUIREMENT**************************************************-->
     <section class="requirement">
-    <%= render 'shared/errors' %>
+    <%= render 'shared/errors', obj: @carpool %>
         <%= form_with scope: :carpool, url: carpools_path, local: true do |f| %>
             <p style="color:black;font-weight: 700;font-size:20px;letter-spacing: 1px;">DETAILS</p><br>
             <div class="row">
@@ -39,9 +39,16 @@
             </div>
             <hr>
             <div class=" row ">
+            <div class="col-md-12">
+                <p style="color:black;font-weight: 550;font-size:16px;letter-spacing: 1px; ">Time</p>
+                <%= f.text_area :time, rows: "1", cols: "50", placeholder: "Please specify time details for the ride.", style: "width:100%; margin-top:-4px; border-radius: 6px;padding:12px; " %>
+            </div>
+            </div>
+            <hr>
+            <div class=" row ">
                 <div class="col-md-12">
                     <p style="color:black;font-weight: 550;font-size:16px;letter-spacing: 1px; ">Description</p>
-                    <%= f.text_area :gender, rows: "7", cols: "50", placeholder: "Any additional detail you want to share, like time, location, price, etc.", style: "width:100%; margin-top:-4px; border-radius: 6px;padding:12px; " %>
+                    <%= f.text_area :description, rows: "7", cols: "50", placeholder: "Any additional detail you want to share. This field is optional.", style: "width:100%; margin-top:-4px; border-radius: 6px;padding:12px; " %>
                 </div>
             </div>
             <br><br>

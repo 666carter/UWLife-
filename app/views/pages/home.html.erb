@@ -4,7 +4,7 @@
             <div class="slider-container">
                 <div class="intro-text">
                     <div class="intro-heading">We help Waterloo students live in a better place</div>
-                    <a href="#Download App" class="page-scroll btn btn-xl">Sign Up for Free</a>
+                    <%= link_to "Sign Up for Free", signup_path, class: "page-scroll btn btn-xl" %>
                 </div>
             </div>
         </div>
@@ -45,39 +45,7 @@
                             <figcaption>
                                 <h2>HOUSING</h2>
                                 <p>Click to view all avaliable housing</p>
-                                <a href="file:///Users/jinnongzhao/Desktop/demo/lattes-template/UWLife+%20-%20housing.html" data-toggle="modal " data-target="#Modal-4 ">View more</a>
-                            </figcaption>
-                        </figure>
-                    </div>
-                </div>
-                <!-- end service item -->
-            </div>
-            <div class="row ">
-                <!-- start service item -->
-                <!-- Photo by 🇸🇮 Janko Ferlič on Unsplash -->
-                <div class="col-md-6 ">
-                    <div class="ot-portfolio-item ">
-                        <figure class="effect-bubba ">
-                        <%= image_tag("book.jpg", :alt => "img03", height: '100%', width: '100%') %>
-                            <figcaption>
-                                <h2>BOOKS</h2>
-                                <p>Click to view all avaliable books to buy/sell</p>
-                                <a href="file:///Users/jinnongzhao/Desktop/demo/lattes-template/UWLife+%20-%20Book.html" data-toggle="modal " data-target="#Modal-4 ">View more</a>
-                            </figcaption>
-                        </figure>
-                    </div>
-                </div>
-                <!-- end service item -->
-                <!-- start service item -->
-                <!-- Photo by Helloquence on Unsplash -->
-                <div class="col-md-6 ">
-                    <div class="ot-portfolio-item ">
-                        <figure class="effect-bubba ">
-                        <%= image_tag("tutor.jpg", :alt => "img04", height: '100%', width: '100%') %>
-                            <figcaption>
-                                <h2>TUTOR</h2>
-                                <p>Click to choose your tutor</p>
-                                <a href="# " data-toggle="modal " data-target="#Modal-5 ">View more</a>
+                                <%= link_to "View more housings", housings_path, class: "navbar-brand", id: "logo" %>
                             </figcaption>
                         </figure>
                     </div>
@@ -85,34 +53,27 @@
                 <!-- end service item -->
             </div>
         </div>
-        <!-- end container -->
     </section>
     <!--**************************************************DARK SECTION**************************************************-->
     <section class="overlay-dark bg-img1 dark-bg short-section " style="border-bottom: 5px solid #ff5647;">
         <div class="container text-center ">
             <div class="row ">
-                <div class="col-md-3 mb-sm-30 ">
+                <div class="col-md-4 mb-sm-30 ">
                     <div class="counter-item ">
-                        <h2 data-count="59 ">1006</h2>
+                        <h2 data-count="59 ">201</h2>
                         <h6>Total Users</h6>
                     </div>
                 </div>
-                <div class="col-md-3 mb-sm-30 ">
+                <div class="col-md-4 mb-sm-30 ">
                     <div class="counter-item ">
-                        <h2 data-count="1054 ">65</h2>
+                        <h2 data-count="1054 ">34</h2>
                         <h6>Carpool Drivers</h6>
                     </div>
                 </div>
-                <div class="col-md-3 mb-sm-30 ">
+                <div class="col-md-4 mb-sm-30 ">
                     <div class="counter-item ">
-                        <h2 data-count="34 ">78</h2>
+                        <h2 data-count="34 ">73</h2>
                         <h6>Renter</h6>
-                    </div>
-                </div>
-                <div class="col-md-3 mb-sm-30 ">
-                    <div class="counter-item ">
-                        <h2 data-count="154 ">666</h2>
-                        <h6>Trasactions</h6>
                     </div>
                 </div>
             </div>
@@ -125,7 +86,7 @@
                 <div class="col-lg-12 text-center">
                     <div class="section-title">
                         <h2 style="color:#ff5647;font-weight: 500 ">ABOUT UWLife+</h2>
-                        <p>We provide a platform which students can find carpool, sublet, books, and tutors. Our service is region based, and currently we have service at Waterloo regions.</p>
+                        <p>We provide a platform which students can find carpool, sublet. Our service is region based, and currently we have service at Waterloo regions.</p>
                     </div>
                 </div>
             </div>
@@ -133,16 +94,16 @@
                 <!-- about module -->
                 <div class="col-md-3 text-center">
                     <div class="mz-module-about">
-                        <i class="fa fa-certificate ot-circle" style=" color:#ff5647"></i>
+                        <i class="fa fa-certificate ot-circle" style="color:#ff5647;font-size: 2em;"></i>
                         <h3>CERTIFICATION</h3>
-                        <p>All drivers, renters, books sellers, and tutors are certificated, registered and controlled under our system.</p>
+                        <p>All drivers, renters are certificated, registered and controlled under our system.</p>
                     </div>
                 </div>
                 <!-- end about module -->
                 <!-- about module -->
                 <div class="col-md-3 text-center ">
                     <div class="mz-module-about ">
-                        <i class="fa fa-calendar-check-o ot-circle" style=" color:#ff5647"></i>
+                        <i class="fa fa-calendar-check-o ot-circle" style=" color:#ff5647;font-size: 2em;"></i>
                         <h3>ON TIME</h3>
                         <p>All drivers, renters should meet their customers on time. Otherwise, customers can give them bad evaluation, and we will block them.</p>
                     </div>
@@ -151,16 +112,16 @@
                 <!-- about module -->
                 <div class="col-md-3 text-center ">
                     <div class="mz-module-about ">
-                        <i class="fa fa-thumbs-o-up ot-circle" style=" color:#ff5647"></i>
+                        <i class="fa fa-thumbs-o-up ot-circle" style=" color:#ff5647;font-size: 2em;"></i>
                         <h3>RATE SYSTEM</h3>
-                        <p>Customers can choose drivers, renter, tutors, and books sellers based on their rate history.</p>
+                        <p>Customers can choose drivers and renter based on their rate history.</p>
                     </div>
                 </div>
                 <!-- end about module -->
                 <!-- about module -->
                 <div class="col-md-3 text-center ">
                     <div class="mz-module-about ">
-                        <i class="fa fa-heart ot-circle" style=" color:#ff5647"></i>
+                        <i class="fa fa-heart ot-circle" style=" color:#ff5647;font-size: 2em;"></i>
                         <h3>MAKE FRIENDS</h3>
                         <p>In UWLife+ APP, Users can post interesting things around campus , share them with others and chat with others</p>
                     </div>
@@ -170,3 +131,6 @@
         </div>
         <!-- /.container -->
     </section> 
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">

@@ -1,0 +1,148 @@
+<hr><hr>
+<section class="profilepage">
+<h1 class="text-center mt-4"><%= @user.username %>'s profile</h1>
+<% if logged_in? && @user == current_user %>
+<div class="text-center mt-4">
+  <%= link_to "Edit your profile", edit_user_path(@user), class: "btn btn-outline-info" %>
+</div>
+<% end %>
+<% if current_user.admin? %>
+<div class="text-center mt-4">
+  <%= link_to "Delete user", user_path(@user), class: "btn btn-outline-danger", method: :delete,
+  data: {confirm: "Are you sure you want to delete the user account and all associated posts?"} %>
+  </div>
+ <% end %>
+
+
+<div class="row profile">
+            <div class="col-md-12">
+                <p style="font-weight: 500; color:#ff5647; font-size:18px">Personal Information:</p>
+                <hr style="border: 1px solid #ff5647; ">
+                <p style="font-weight: 500;">Name: <span style="font-weight: 500; color:black;"> <%= @user.username %></p>
+                <p style="font-weight: 500;">Tel: <span style="font-weight: 500; color:black;"> <%= @user.tel %></p>
+                <p style="font-weight: 500;">Email: <span style="font-weight: 500; color:black;"><%= @user.email %></p>
+            </div>
+</div>
+<br>
+<div class="row profile">
+        <div class="col-md-12">
+            <p style="font-weight: 500; color:#ff5647; font-size:18px">Personal Posting:</p>
+            <hr style="border: 1px solid #ff5647; ">
+        </div>
+</div>
+
+
+<div class="row profile">
+<div class="col-md-12">
+<div class="tab">
+            <button class="tablinks" onclick="openCity(event, 'Carpool')" id="defaultOpen">Carpool</button>
+            <button class="tablinks" onclick="openCity(event, 'Housing')">Housing</button>
+</div>
+
+<div id="Carpool" class="tabcontent">
+
+
+<div class="container">
+<% @carpools.each do |carpool| %>
+<div class="row justify-content-md-center">
+  <div class="col-8 mt-4">
+    <div class="card text-center shadow mb-5 bg-white rounded">
+      <div class="card-header font-italic">
+      <b>Driver Name:</b> <%= carpool.user.username if carpool.user %>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title"><b>From:</b> <%= carpool.locationFrom %></h5>
+        <h5 class="card-title"><b>To:</b> <%= carpool.locationTo %></h5>
+        <h5 class="card-title"><b>Price:</b> $<%= carpool.price %></h5>
+        <h5 class="card-title"><b>Avaliable Seats:</b> <%= carpool.seats %></h5>
+        <%= link_to "View", carpool_path(carpool), class: "btn view" %>
+        <% if logged_in? && (@user == current_user || current_user.admin?) %>
+        <%= link_to "Edit", edit_carpool_path(carpool), class: "btn edit" %>
+        <%= link_to "Delete", carpool_path(carpool), class: "btn delete", method: :delete, data: {confirm: "Are you sure?"} %>
+        <% end %>
+      </div>
+      <div class="card-footer text-muted">
+        <small>Created <%= time_ago_in_words(carpool.created_at) %> ago, 
+        edited <%= time_ago_in_words(carpool.updated_at) %> ago</small>
+      </div>
+    </div>
+  </div>
+</div>
+<hr style="border-top: 1px solid #ff5647;">
+<% end %>
+</div>
+
+<div class="center">     
+        <div class="flickr_pagination mb-4">
+            <%= will_paginate @carpools, :container => false %>
+        </div>
+</div>
+
+</div>
+
+
+<div id="Housing" class="tabcontent">
+
+
+<div class="container">
+<% @housings.each do |housing| %>
+<div class="row justify-content-md-center">
+  <div class="col-8 mt-4">
+    <div class="card text-center shadow mb-5 bg-white rounded">
+      <div class="card-header font-italic">
+      <b>Driver Name:</b> <%= housing.user.username if housing.user %>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title"><b>From:</b> <%= housing.address %></h5>
+        <h5 class="card-title"><b>To:</b> <%= housing.address %></h5>
+        <h5 class="card-title"><b>Price:</b> $<%= housing.price %></h5>
+        <h5 class="card-title"><b>Avaliable Seats:</b> <%= housing.howManyRooms %></h5>
+        <%= link_to "View", housing_path(housing), class: "btn view" %>
+        <% if logged_in? && (@user == current_user || current_user.admin?) %>
+        <%= link_to "Edit", edit_housing_path(housing), class: "btn edit" %>
+        <%= link_to "Delete", housing_path(housing), class: "btn delete", method: :delete, data: {confirm: "Are you sure?"} %>
+        <% end %>
+      </div>
+      <div class="card-footer text-muted">
+        <small>Created <%= time_ago_in_words(housing.created_at) %> ago, 
+        edited <%= time_ago_in_words(housing.updated_at) %> ago</small>
+      </div>
+    </div>
+  </div>
+</div>
+<hr style="border-top: 1px solid #ff5647;">
+<% end %>
+</div>
+
+<div class="center">     
+        <div class="flickr_pagination mb-4">
+            <%= will_paginate @housings, :container => false %>
+        </div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+
+
+</section>
+
+<script>
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+document.getElementById("defaultOpen").click();
+</script>

@@ -1,0 +1,58 @@
+<!--*******************************************************HEADER************************************************** -->
+    <header>
+    <div class="hearder_housing">
+        <div class="container">
+            <div class="slider-container">
+                <div class="intro-text-housing">
+                    <div class="intro-heading">Find your warmly stay at UWLife+</div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </header>
+
+    <!--**************************************************LISTS**************************************************-->
+
+    <div class="container-fluid all-lists">
+    <br><br>
+  <div class="row lists">
+  <div class="container">
+  <% @housings.each do |housing| %>
+  <div class="row justify-content-md-center">
+    <div class="col-8 mt-4">
+      <div class="card text-center shadow mb-5 bg-white rounded">
+        <div class="card-header font-italic">
+        <% if housing.user %>
+              by <%= link_to housing.user.username, user_path(housing.user) %>
+         <% end %>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title"><b>Price:</b> $<%= housing.price %></h5>
+            <h5 class="card-title"><b>Time:</b> <%= housing.time %></h5>        
+            <h5 class="card-title"><b>Avaliable Rooms:</b> <%= housing.howManyRooms %></h5>
+            <h5 class="card-title"><b>Address:</b> <%= housing.address %></h5>
+          <%= link_to "View", housing_path(housing), class: "btn view" %>
+          <% if logged_in? && (housing.user == current_user || current_user.admin?) %>
+            <%= link_to "Edit", edit_housing_path(housing), class: "btn edit" %>
+            <%= link_to "Delete", housing_path(housing), class: "btn delete", method: :delete, data: {confirm: "Are you sure?"} %>
+          <% end %>
+          </div>
+        <div class="card-footer text-muted">
+          <small>Created <%= time_ago_in_words(housing.created_at) %> ago, 
+          edited <%= time_ago_in_words(housing.updated_at) %> ago</small>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr style="border-top: 1px solid #ff5647;">
+  <% end %>
+  </div>
+  </div>
+
+        <div class="center">     
+        <div class="flickr_pagination mb-4">
+            <%= will_paginate @housings, :container => false %>
+        </div>
+        </div>
+
+    </div>

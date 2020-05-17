@@ -4,4 +4,15 @@ class PagesController < ApplicationController
       
     end
  
+    def contactus
+    
+    end
+
+    def whyus
+
+    end
+
+    def team
+    
+    end
   end

@@ -1,28 +1,57 @@
-<h1>Edit carpool</h1>
+<!--*******************************************************HEADER************************************************** -->
+    <header>
+    <div class="hearder_carpool">
+        <div class="container">
+            <div class="slider-container">
+                <div class="intro-text-carpool">
+                    <div class="intro-heading">EDIT YOUR POST HERE</div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </header>
 
-<% if @carpool.errors.any? %>
-  <h2>The following errors prevented the post from being saved</h2>
-  <ul>
-    <% @carpool.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-  </ul>
-<% end %>
-
-<%= form_with(model: @carpool, local: true) do |f| %>
-
-  <p>
-  <%= f.label :seats %><br/> 
-  <%= f.text_field :seats, type: "integer" %>
-  </p>
-
-  <p>
-  <%= f.label :price %><br/> 
-  <%= f.text_area :price %> 
-  </p>
-
-  <p>
-    <%= f.submit %>
-  </p>
-
-<% end %>
+  <!--**************************************************REQUIREMENT**************************************************-->
+    <section class="requirement">
+    <%= render 'shared/errors', obj: @carpool %>
+      <%= form_with(model: @carpool, local: true) do |f| %>
+            <p style="color:black;font-weight: 700;font-size:20px;letter-spacing: 1px;">DETAILS</p><br>
+            <div class="row">
+                <div class="col-lg-4">
+                    <p style="color:black;font-weight: 550;font-size:16px;letter-spacing: 1px;">How many seats you want to provide?</p>
+                    <%= f.text_field :seats, type: "integer", style: "width:70%; margin-top:-4px; height: 35px;border-radius: 6px;" %>
+                </div>
+                <div class="col-lg-6">
+                    <p style="color:black;font-weight: 550;font-size:16px;letter-spacing: 1px;">Location</p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <%= f.text_field :locationFrom, placeholder: "From...", style: "width:90%; margin-top:-4px; height: 35px;border-radius: 6px;padding:12px; " %>
+                        </div>
+                        <div class="col-md-6">
+                            <%= f.text_field :locationTo, placeholder: "To...", style: "width:90%; margin-top:-4px; height: 35px;border-radius: 6px;padding:12px; "%>
+                            </div>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                      <p style="color:black;font-weight: 550;font-size:16px;letter-spacing: 1px;">Price</p>
+                      <%= f.text_field :price, placeholder: "$(CAD)", style: "width:75%; margin-top:-4px; height: 35px;border-radius: 6px;padding:12px; " %> 
+                </div>
+            </div>
+            <hr>
+            <div class=" row ">
+            <div class="col-md-12">
+                <p style="color:black;font-weight: 550;font-size:16px;letter-spacing: 1px; ">Time</p>
+                <%= f.text_area :time, rows: "1", cols: "50", placeholder: "Please specify time details for the ride.", style: "width:100%; margin-top:-4px; border-radius: 6px;padding:12px; " %>
+            </div>
+            </div>
+            <hr>
+            <div class=" row ">
+                <div class="col-md-12">
+                    <p style="color:black;font-weight: 550;font-size:16px;letter-spacing: 1px; ">Description</p>
+                    <%= f.text_area :description, rows: "7", cols: "50", placeholder: "Any additional detail you want to share, like time, location, price, etc.", style: "width:100%; margin-top:-4px; border-radius: 6px;padding:12px; " %>
+                </div>
+            </div>
+            <br><br>
+            <%= f.submit "UPDATE", class: "create_new_carpool" %> 
+      <% end %>
+    </section>

@@ -194,6 +194,88 @@ header .intro-text-carpool {
 }
 
 
+
+.hearder_housing {
+    background-image: url(https://www.mcgill.ca/students/housing/files/students.housing/styles/slider__920x390_/public/calltoactionslideshow_fees_macl.png?itok=iXwtGSAv);
+    background-size: cover !important;
+    background-position: center center;
+    background-repeat: no-repeat;
+    text-align: center;
+    color: #fff;
+    height: 25em;
+}
+
+header .intro-text-housing .intro-heading {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 50px;
+    margin-bottom: 25px;
+}
+
+@media (min-width: 768px) {
+    header .intro-text-housing .intro-heading {
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 75px;
+        margin-bottom: 50px;
+    }
+}
+
+header .intro-text-housing {
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
+
+@media (min-width: 768px) {
+    header .intro-text-housing {
+        padding-top: 170px;
+        padding-bottom: 200px;
+    }
+}
+
+.hearder_whyus {
+    background-image: url(https://cs.uwaterloo.ca/~brecht/directions/davis-center.jpeg);
+    background-size: cover !important;
+    background-position: center center;
+    background-repeat: no-repeat;
+    text-align: center;
+    color: #fff;
+    height: 25em;
+}
+
+header .intro-text-whyus .intro-heading {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 50px;
+    margin-bottom: 25px;
+}
+
+@media (min-width: 768px) {
+    header .intro-text-whyus .intro-heading {
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 75px;
+        margin-bottom: 50px;
+    }
+}
+
+header .intro-text-whyus {
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
+
+@media (min-width: 768px) {
+    header .intro-text-whyus {
+        padding-top: 170px;
+        padding-bottom: 200px;
+    }
+}
+
+
 header .intro-text {
     padding-top: 100px;
     padding-bottom: 50px;
@@ -912,7 +994,7 @@ footer p a span {
 
 
 /*--------------------
-4. Sections-CarpoolPosting
+Sections-CarpoolPosting
 --------------------*/
 section.requirement {
     padding-left: 10%;
@@ -931,3 +1013,128 @@ section.requirement {
     font-weight: 600;
     font-size: 20px;
 }
+
+/*--------------------
+Sections-HousingPosting
+--------------------*/
+.create_new_housing {
+    padding:15px;
+    color:white;
+    background-color: black;
+    border-radius: 6px;
+    width: 70%;
+    margin-left:15%;
+    margin-right: 15%;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+/*--------------------
+Signup page
+--------------------*/
+section.signup {
+    margin-top: 7%;
+    border-bottom: 3px solid #ff5647;
+
+}
+
+/*--------------------
+profile page
+--------------------*/
+.profilepage {
+    margin: 4%;
+    border: 3px solid #ff5647;
+}
+
+.row.profile .col-md-12 {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+/*--------------------
+3. MESSAGE & RATING
+--------------------*/
+
+* {
+    box-sizing: border-box
+}
+
+
+/* Style the tab */
+
+.tab {
+    float: left;
+    border-right: 2px solid #ccc;
+    background-color: white;
+    width: 20%;
+}
+
+
+/* Style the buttons inside the tab */
+
+.tab button {
+    display: block;
+    background-color: inherit;
+    color: black;
+    padding: 22px 22px;
+    width: 100%;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+
+/* Change background color of buttons on hover */
+
+.tab button:hover {
+    opacity: 0.4;
+    text-decoration: underline;
+}
+
+
+/* Create an active/current "tab button" class */
+
+.tab button.active {
+    text-decoration: underline;
+}
+
+
+/* Style the tab content */
+
+.tabcontent {
+    float: left;
+    padding: 0px 12px;
+    border: 0px solid #ccc;
+    width: 70%;
+    border-left: none;
+    margin-left: 50px;
+    margin-top: 0px;
+}
+
+.box {
+    border: 1px solid #ccc;
+    width: 400px;
+    height: 200px;
+    margin-left: 250px;
+    background-color: rgb(226, 223, 223);
+}
+
+.boxfeedback {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    border-left: 0px;
+    border-right: 0px;
+    width: 400px;
+    height: 170px;
+    margin-left: 250px;
+    background-color: white;
+}
+
+.carouselsection {
+    border: 3px solid #ff5647;
+    background-color: white;
+    margin: 4%;
+}
+

@@ -13,26 +13,31 @@
       <%= link_to "Carpool", carpools_path, class: "nav-link" %>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Housing</a>
+      <%= link_to "Housing", housings_path, class: "nav-link" %>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Book</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Tutor</a>
-      </li>
-      <li class="nav-item dropdown" style = "width: 80%">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Personal Center
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Login</a>
-          <a class="dropdown-item" href="#">Personal Center</a>
-          <div class="dropdown-divider"></div>
-          <%= link_to "Posting Carpool", new_carpool_path, class: "dropdown-item" %>
-          <%= link_to "Posting Housing", new_carpool_path, class: "dropdown-item" %>
-        </div>
-      </li>
+ 
+        <% if logged_in? %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= current_user.username %>'s Personal Center
+          </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="width: 100%">
+            <%= link_to 'Profile', user_path(current_user), class: "dropdown-item" %> 
+            <%= link_to 'Logout', logout_path, class: "dropdown-item", method: :delete %>
+            <div class="dropdown-divider"></div>
+            <%= link_to "Posting Carpool", new_carpool_path, class: "dropdown-item" %>
+            <%= link_to "Posting Housing", new_housing_path, class: "dropdown-item" %>
+          </div>
+        </li>
+        <% else %>
+          <li class="nav-item">
+              <%= link_to 'Log in', login_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+              <%= link_to 'Sign up', signup_path, class: "nav-link" %>
+          </li>
+        <% end %>
     </ul>
   </div>
 </nav>
+

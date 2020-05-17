@@ -1,0 +1,66 @@
+<hr><hr>
+
+<section class="carouselsection">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <p style="margin-left:3%;margin-bottom: 25px;margin-top: -2.5%;color:black;font-weight: 700; font-size: 22px;">Basic Information:</p>
+                
+                <p style="font-weight: 500; margin-left: 3%;"> PRICE: &nbsp; <span style="font-weight: 500; color:#ff5647;">$<%= @housing.price %>/month</span></p>
+                
+                <p style="font-weight: 500; margin-left: 3%;"> AVALIABLE ROOMS: &nbsp; <span style="font-weight: 500; color:black;"><%= @housing.howManyRooms %></span></p>
+
+                <p style="font-weight: 500; margin-left: 3%;"> TIME: &nbsp; <span style="font-weight: 500; color:black;">
+                <% if @housing.time.blank? %>
+                The renter doesn't specified the timing
+                <% else %>
+                <%= @housing.time %> 
+                <% end %>
+                </span></p>
+                            
+                <p style="font-weight: 500; margin-left: 3%;"> ADDRESS: &nbsp; <span style="font-weight: 500; color:black;"><%= @housing.address %></span></p>
+                 
+            </div>
+        </div>
+
+        <hr style=" border: 1px solid #ff5647; margin-right:3%; margin-left:3%;">
+
+        <div class="row">
+            <div class="col-sm-12">
+                <p style="margin-left:3%;margin-bottom: 25px;color:black;font-weight: 700; font-size: 22px;">Description:</p>
+                <p style="font-weight: 500; margin-left: 3%;">
+                <% if @housing.description.blank? %>
+                This renter hasn't write any description yet.  
+                <% else %>
+                <%= @housing.description %>
+                <% end %>
+                </p>
+            </div>
+        </div>
+
+        <hr style=" border: 1px solid #ff5647; margin-right:3%; margin-left:3%;">
+
+        <div class="row">
+        <div class="col-sm-12">
+            <p style="margin-left:3%;margin-bottom: 25px;color:black;font-weight: 700; font-size: 22px;">Requirement For Subletter:</p>
+            <p style="font-weight: 500; margin-left: 3%;">
+            <% if @housing.requirement.blank? %>
+            This renter hasn't write any requirement yet.  
+            <% else %>
+            <%= @housing.requirement %>
+            <% end %>
+            </p>
+        </div>
+        </div>
+
+        <hr style=" border: 1px solid #ff5647; margin-right:3%; margin-left:3%;">
+
+        <div class="row">
+            <div class="col-sm-12">
+                <p style="margin-left:3%;margin-bottom: 25px;color:black;font-weight: 700; font-size: 22px;">Renter's Information:</p>              
+                    <p style="margin-left:3%;font-weight: 500;">NAME: <%= link_to @housing.user.username, user_path(@housing.user) %> <span style="color:black;">[click on the name to view renter's profile]</span></p>
+                    <p style="margin-left:3%;font-weight: 500;">TEL: <span style="font-weight: 500; color:black;"> <%= @housing.user.tel %> </span</p>
+                    <p style="margin-left:3%;font-weight: 500;">EMAIL: <span style="font-weight: 500; color:black;"> <%= @housing.user.email %> </span></p>
+            </div>
+        </div>
+    </section>

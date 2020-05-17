@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_13_203229) do
+ActiveRecord::Schema.define(version: 2020_05_17_001716) do
 
   create_table "carpools", force: :cascade do |t|
     t.boolean "doorToDoor"
@@ -21,21 +21,23 @@ ActiveRecord::Schema.define(version: 2020_05_13_203229) do
     t.string "locationFrom"
     t.string "locationTo"
     t.string "price"
-    t.datetime "time"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer "user_id"
+    t.string "description"
+    t.string "time"
   end
 
   create_table "housings", force: :cascade do |t|
     t.string "price"
     t.string "address"
-    t.string "from"
-    t.string "to"
-    t.integer "rooms"
+    t.integer "howManyRooms"
     t.string "description"
     t.string "requirement"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer "user_id"
+    t.string "time"
   end
 
   create_table "users", force: :cascade do |t|
@@ -43,6 +45,9 @@ ActiveRecord::Schema.define(version: 2020_05_13_203229) do
     t.string "email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "password_digest"
+    t.string "tel"
+    t.boolean "admin", default: false
   end
 
 end
