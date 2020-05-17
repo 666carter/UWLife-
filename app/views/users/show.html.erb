@@ -6,7 +6,7 @@
   <%= link_to "Edit your profile", edit_user_path(@user), class: "btn btn-outline-info" %>
 </div>
 <% end %>
-<% if current_user.admin? %>
+<% if logged_in? && current_user.admin? %>
 <div class="text-center mt-4">
   <%= link_to "Delete user", user_path(@user), class: "btn btn-outline-danger", method: :delete,
   data: {confirm: "Are you sure you want to delete the user account and all associated posts?"} %>
