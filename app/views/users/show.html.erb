@@ -90,12 +90,12 @@
   <div class="col-8 mt-4">
     <div class="card text-center shadow mb-5 bg-white rounded">
       <div class="card-header font-italic">
-      <b>Driver Name:</b> <%= housing.user.username if housing.user %>
+      <b>Renter Name:</b> <%= housing.user.username if housing.user %>
       </div>
       <div class="card-body">
         <h5 class="card-title"><b>Price:</b> <%= housing.price %></h5>
         <h5 class="card-title"><b>Time:</b> <%= housing.time %></h5>
-        <h5 class="card-title"><b>Avaliable Seats:</b> <%= housing.howManyRooms %></h5>
+        <h5 class="card-title"><b>Avaliable rooms:</b> <%= housing.howManyRooms %></h5>
         <h5 class="card-title"><b>Address:</b> <%= housing.address %></h5>
         <%= link_to "View", housing_path(housing), class: "btn view" %>
         <% if logged_in? && (@user == current_user || current_user.admin?) %>
